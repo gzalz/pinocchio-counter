@@ -17,7 +17,7 @@ fn main() {
     let payer = read_keypair_file("/Users/eric/.config/solana/id.json").unwrap(); // or read from file
 
     // The program to invoke
-    let program_id = Pubkey::from_str("H7NQGd5ZDZtHJNmCpgyi6b3kuoJpS8mvQCrVrg9yRt9V").unwrap();
+    let program_id = Pubkey::from_str("8tNV32xuAQnkaHLvkRkCU1QfyDYoDT3F48saRQPcGTTy").unwrap();
     let dest_pubkey = Pubkey::from_str("Sp5wv9Tyb9P3NiWLAohbxHVUDq2APRd9tdT2sLxbLZ3").unwrap();
     let system_program = Pubkey::from_str("11111111111111111111111111111111").unwrap();
 
