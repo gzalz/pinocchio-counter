@@ -1,25 +1,23 @@
+#![feature(const_mut_refs)]
 use pinocchio::{
   account_info::AccountInfo,
-  entrypoint,
+  default_panic_handler,
   msg,
+  no_allocator,
+  default_allocator,
+  lazy_program_entrypoint,
   ProgramResult,
-  pubkey::Pubkey
+  pubkey::Pubkey,
+    entrypoint::InstructionContext,
 };
-use pinocchio_system::instructions::Transfer;
-entrypoint!(process_instruction);
+
+lazy_program_entrypoint!(process_instruction);
+no_allocator!();
+default_panic_handler!();
 
 pub fn process_instruction(
-  program_id: &Pubkey,
-  accounts: &[AccountInfo],
-  instruction_data: &[u8],
+    mut context: InstructionContext
 ) -> ProgramResult {
-    let payer_info = accounts.get(0).unwrap();
-    let dest_info = accounts.get(1).unwrap();
-    let lamport_bytes: [u8; 8] = instruction_data[..8].try_into().unwrap();
-    Transfer {
-        from: payer_info,
-        to: dest_info,
-        lamports: u64::from_le_bytes(lamport_bytes),
-    }.invoke()?;
+    msg!("Hello from lazy no allocator program!");
     Ok(())
 }
