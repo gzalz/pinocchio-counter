@@ -17,8 +17,8 @@ fn main() {
     let payer = read_keypair_file("/Users/eric/.config/solana/id.json").unwrap(); // or read from file
 
     // The program to invoke
-    let program_id = Pubkey::from_str("8tNV32xuAQnkaHLvkRkCU1QfyDYoDT3F48saRQPcGTTy").unwrap();
-    let dest_pubkey = Pubkey::from_str("Sp5wv9Tyb9P3NiWLAohbxHVUDq2APRd9tdT2sLxbLZ3").unwrap();
+    let program_id = Pubkey::from_str("CS6YTetM9Z1sot4nPyF46qGQAfpmFtNmTM9vEcUrtcDB").unwrap();
+    let dest_pubkey = Pubkey::from_str("4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU").unwrap();
     let system_program = Pubkey::from_str("11111111111111111111111111111111").unwrap();
 
     // Optional: Accounts to include (can be empty or just the program itself)
@@ -32,7 +32,7 @@ fn main() {
     let instruction = Instruction {
         program_id,
         accounts,
-        data: vec![42, 0, 0, 0, 0, 0, 0, 0], // empty data
+        data: vec![42, 0, 0, 0, 0, 0, 0, 0, 42, 0, 0, 0], // empty data
     };
 
     // Build and send the transaction
