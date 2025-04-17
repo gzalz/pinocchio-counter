@@ -27,10 +27,8 @@ pub fn process_instruction(mut context: InstructionContext) -> ProgramResult {
     }
     let _ = context.next_account();
     let zc_account_info: AccountInfo = context.next_account().unwrap().assume_account();
-    let zc_data = zc_account_info.try_borrow_mut_data().unwrap();
+    let zc_data = zc_account_info.try_borrow_data().unwrap();
     let ptr = zc_data.as_ptr() as *const ZeroCopy;
     let zc_struct = unsafe { &*ptr };
-    msg!(zc_struct.field1.to_string().as_str());
-    msg!(zc_struct.field2.to_string().as_str());
     Ok(())
 }
