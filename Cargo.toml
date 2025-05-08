@@ -1,11 +1,20 @@
 [package]
-name = "pinocchio-test"
+name = "pinocchio-counter"
 version = "0.1.0"
 edition = "2021"
 
-[lib]
-crate-type = ["cdylib"]
+[workspace]
+members = [
+    "cli",
+    "program",
+]
 
-[dependencies]
+[[bin]]
+name = "counter-cli"
+path = "cli/src/main.rs"
+
+[workspace.dependencies]
 pinocchio = "0.8.2"
 pinocchio-system = "0.2.3"
+solana-client = "2.2.7"
+solana-sdk = "2.2.2"
