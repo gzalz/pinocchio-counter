@@ -38,8 +38,6 @@ solana program deploy target/sbf-solana-solana/release/pinocchio_counter_sbf.so 
 ```
 cd cli
 cargo run init
-# Check the PDA address in the transaction in Solana explorer against your local
-# validator, configured in Custom RPC URL
 cargo run increment
 ```
 
