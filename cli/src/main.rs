@@ -15,7 +15,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 2 {
-        eprintln!("Usage: {} <command>", args[0]);
+        eprintln!("Usage: {} <command> <keypair_path>", args[0]);
         std::process::exit(1);
     }
 
@@ -25,11 +25,11 @@ fn main() {
         ixn_discr = 1;
     } else if command == "increment" {
         ixn_discr = 2;
-    } 
+    }
 
     let rpc_url = "http://localhost:8899";
     let client = RpcClient::new(rpc_url.to_string());
-    let payer = read_keypair_file("/Users/eric/.config/solana/id.json").unwrap();
+    let payer = read_keypair_file(&args[2]).unwrap();
 
     let program_id = Pubkey::from_str("H7NQGd5ZDZtHJNmCpgyi6b3kuoJpS8mvQCrVrg9yRt9V").unwrap();
     let (pda_pubkey, bump) = Pubkey::find_program_address(&[b"counter".as_ref()], &program_id);
