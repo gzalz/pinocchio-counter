@@ -45,5 +45,5 @@ cargo run increment
 
 Check the account data with
 ```
-solana address $PDA_PUBKEY
+solana address 5pa3rfwGTRyNLiWaM8bzk8jwYet6YaRLmRy2x4a8MPgq
 ```
