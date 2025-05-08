@@ -4,10 +4,8 @@ This is a demonstration of a Solana program and CLI for simple counter state on-
 
 ## Setup
 
-```
-mkdir credentials
-solana-keygen new -o credentials/counter.json
-```
+A hardcoded program id keypair exists at `credentials/counter.json`. This keypair is public
+and should not be used for anything other than local testing of this program.
 
 ## Compiling
 
